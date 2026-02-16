@@ -1,0 +1,1495 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>✈️ 新千歳空港 完全攻略ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700;900&family=Kiwi+Maru:wght@300;400;500&family=Dela+Gothic+One&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink: #FFB7C5;
+  --pink-deep: #FF8FAB;
+  --pink-light: #FFF0F3;
+  --cream: #FFF8F0;
+  --mint: #B8E8D0;
+  --mint-deep: #7DCBA4;
+  --lavender: #E0D4F5;
+  --lavender-deep: #C4AAEF;
+  --sky: #C5E4F7;
+  --sky-deep: #8EC8E8;
+  --peach: #FFDAB9;
+  --white: #FFFFFF;
+  --text: #4A3F5C;
+  --text-light: #7B6F8E;
+  --text-muted: #A99BBF;
+  --card-shadow: 0 8px 32px rgba(74, 63, 92, 0.08);
+  --card-shadow-hover: 0 12px 48px rgba(74, 63, 92, 0.14);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Zen Maru Gothic', sans-serif;
+  color: var(--text);
+  background: var(--cream);
+  overflow-x: hidden;
+  line-height: 1.9;
+}
+
+/* ============ HERO ============ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  position: relative;
+  background: linear-gradient(160deg, var(--pink-light) 0%, var(--cream) 30%, var(--sky) 60%, var(--lavender) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 300px 300px at 15% 20%, rgba(255,183,197,0.4), transparent),
+    radial-gradient(ellipse 250px 250px at 80% 70%, rgba(184,232,208,0.4), transparent),
+    radial-gradient(ellipse 200px 200px at 50% 50%, rgba(224,212,245,0.3), transparent);
+  pointer-events: none;
+}
+
+.floating-elements {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.float-item {
+  position: absolute;
+  font-size: 2rem;
+  opacity: 0.35;
+  animation: floatUp linear infinite;
+}
+
+@keyframes floatUp {
+  0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+  10% { opacity: 0.35; }
+  90% { opacity: 0.35; }
+  100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255,255,255,0.7);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,183,197,0.4);
+  border-radius: 50px;
+  padding: 0.5rem 1.5rem;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  animation: fadeSlideDown 0.8s ease-out;
+}
+
+.hero-title {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  line-height: 1.3;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep), var(--sky-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeSlideDown 1s ease-out 0.2s both;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-sub {
+  font-family: 'Kiwi Maru', serif;
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: var(--text-light);
+  max-width: 600px;
+  margin-bottom: 2.5rem;
+  animation: fadeSlideDown 1s ease-out 0.4s both;
+  position: relative;
+  z-index: 1;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeSlideDown 1s ease-out 0.6s both;
+  position: relative;
+  z-index: 1;
+}
+
+.stat-pill {
+  background: rgba(255,255,255,0.75);
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(255,255,255,0.6);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  min-width: 130px;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.stat-pill:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--card-shadow);
+}
+
+.stat-num {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.6rem;
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 0.2rem;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 2rem;
+  animation: bounce 2s ease-in-out infinite;
+  font-size: 1.5rem;
+  opacity: 0.5;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+@keyframes fadeSlideDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ============ NAV ============ */
+.sticky-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,248,240,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1.5px solid rgba(255,183,197,0.2);
+  padding: 0.8rem 0;
+  transition: box-shadow 0.3s;
+}
+
+.sticky-nav.scrolled {
+  box-shadow: 0 4px 20px rgba(74,63,92,0.06);
+}
+
+.nav-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0.3rem;
+  overflow-x: auto;
+  padding: 0 1rem;
+  scrollbar-width: none;
+}
+
+.nav-inner::-webkit-scrollbar { display: none; }
+
+.nav-link {
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  white-space: nowrap;
+  transition: all 0.3s;
+  border: 1.5px solid transparent;
+}
+
+.nav-link:hover, .nav-link.active {
+  background: var(--pink-light);
+  color: var(--pink-deep);
+  border-color: rgba(255,143,171,0.3);
+}
+
+/* ============ CONTENT ============ */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+section {
+  padding: 4rem 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.section-emoji {
+  font-size: 3rem;
+  display: block;
+  margin-bottom: 0.8rem;
+  animation: wiggle 3s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(5deg); }
+  75% { transform: rotate(-5deg); }
+}
+
+.section-label {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--white);
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+  padding: 0.3rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  color: var(--text);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+
+.section-desc {
+  font-family: 'Kiwi Maru', serif;
+  font-size: 0.95rem;
+  color: var(--text-light);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Cards */
+.card {
+  background: var(--white);
+  border-radius: 24px;
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+  border: 1.5px solid rgba(255,183,197,0.15);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.card-accent {
+  border-left: 4px solid var(--pink);
+}
+
+.card-accent-mint {
+  border-left: 4px solid var(--mint);
+}
+
+.card-accent-lavender {
+  border-left: 4px solid var(--lavender-deep);
+}
+
+.card-accent-sky {
+  border-left: 4px solid var(--sky-deep);
+}
+
+.card h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card p {
+  font-size: 0.92rem;
+  color: var(--text-light);
+  line-height: 1.9;
+}
+
+/* Highlight boxes */
+.highlight-box {
+  background: linear-gradient(135deg, var(--pink-light), rgba(224,212,245,0.3));
+  border-radius: 20px;
+  padding: 1.5rem 2rem;
+  margin: 1.5rem 0;
+  border: 1.5px dashed rgba(255,143,171,0.3);
+  font-size: 0.92rem;
+}
+
+.highlight-box.mint {
+  background: linear-gradient(135deg, rgba(184,232,208,0.25), rgba(197,228,247,0.2));
+  border-color: rgba(125,203,164,0.4);
+}
+
+.highlight-box.lavender {
+  background: linear-gradient(135deg, rgba(224,212,245,0.35), rgba(255,240,243,0.2));
+  border-color: rgba(196,170,239,0.4);
+}
+
+/* Math display */
+.math-display {
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  padding: 1.2rem;
+  text-align: center;
+  font-family: 'Kiwi Maru', serif;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: var(--text);
+  margin: 1.2rem 0;
+  border: 1.5px solid rgba(184,232,208,0.3);
+}
+
+.math-display .big {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.8rem;
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: block;
+  margin-top: 0.3rem;
+}
+
+/* ============ SWEETS TABLE ============ */
+.sweets-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+.sweet-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 1.5rem;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.sweet-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.sweet-num {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 0.8rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.sweet-num.pink-bg { background: linear-gradient(135deg, var(--pink-deep), var(--pink)); }
+.sweet-num.mint-bg { background: linear-gradient(135deg, var(--mint-deep), var(--mint)); }
+.sweet-num.lavender-bg { background: linear-gradient(135deg, var(--lavender-deep), var(--lavender)); }
+.sweet-num.sky-bg { background: linear-gradient(135deg, var(--sky-deep), var(--sky)); }
+.sweet-num.peach-bg { background: linear-gradient(135deg, #f0a070, var(--peach)); }
+
+.sweet-info { flex: 1; }
+
+.sweet-brand {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--pink-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.sweet-name {
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0.15rem 0 0.3rem;
+}
+
+.sweet-tag {
+  display: inline-block;
+  font-size: 0.65rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 50px;
+  margin-right: 0.3rem;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.tag-fresh { background: rgba(255,183,197,0.25); color: var(--pink-deep); }
+.tag-limited { background: rgba(184,232,208,0.3); color: var(--mint-deep); }
+.tag-hybrid { background: rgba(224,212,245,0.35); color: var(--lavender-deep); }
+.tag-classic { background: rgba(197,228,247,0.3); color: var(--sky-deep); }
+.tag-premium { background: rgba(255,218,185,0.4); color: #c07030; }
+
+.sweet-desc {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.3rem;
+  line-height: 1.7;
+}
+
+/* ============ TIMELINE ============ */
+.timeline {
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--pink), var(--mint), var(--lavender), var(--sky));
+  border-radius: 3px;
+}
+
+.tl-item {
+  position: relative;
+  margin-bottom: 2rem;
+  animation: fadeIn 0.6s ease-out both;
+}
+
+.tl-dot {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.2rem;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  z-index: 1;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.tl-time {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 0.85rem;
+  color: var(--pink-deep);
+  margin-bottom: 0.2rem;
+}
+
+.tl-card {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 1.3rem 1.5rem;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+}
+
+.tl-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.tl-card p {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+.tl-location {
+  display: inline-block;
+  font-size: 0.7rem;
+  background: rgba(184,232,208,0.25);
+  color: var(--mint-deep);
+  padding: 0.15rem 0.6rem;
+  border-radius: 50px;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+/* ============ TREND CARDS ============ */
+.trend-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.2rem;
+}
+
+.trend-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 1.8rem 1.5rem;
+  text-align: center;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.trend-card:hover {
+  transform: translateY(-4px) rotate(-0.5deg);
+  box-shadow: var(--card-shadow-hover);
+}
+
+.trend-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+
+.trend-card h4 {
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+.trend-card p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.7;
+}
+
+/* ============ ROYCE SECTION ============ */
+.royce-modules {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.royce-mod {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s;
+}
+
+.royce-mod:hover { transform: scale(1.03); }
+
+.royce-mod-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  margin: 0 auto 0.8rem;
+}
+
+.royce-mod h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.royce-mod p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+
+.royce-mod .time-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.7rem;
+  border-radius: 50px;
+  margin-top: 0.5rem;
+  font-weight: 700;
+}
+
+/* ============ LOUNGE ============ */
+.lounge-features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.lounge-feat {
+  background: var(--white);
+  border-radius: 18px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+}
+
+.lounge-feat-icon {
+  font-size: 2rem;
+  margin-bottom: 0.6rem;
+}
+
+.lounge-feat h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+}
+
+.lounge-feat p {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* ============ CONCLUSION ============ */
+.conclusion-points {
+  display: grid;
+  gap: 1.2rem;
+}
+
+.conc-card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 1.8rem;
+  border: 1.5px solid rgba(255,183,197,0.12);
+  box-shadow: var(--card-shadow);
+  display: flex;
+  gap: 1.2rem;
+  align-items: flex-start;
+}
+
+.conc-num {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.2rem;
+  color: var(--white);
+  flex-shrink: 0;
+}
+
+.conc-card h4 {
+  font-size: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.conc-card p {
+  font-size: 0.88rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ============ FOOTER ============ */
+.footer {
+  background: linear-gradient(160deg, var(--pink-light) 0%, var(--lavender) 50%, var(--sky) 100%);
+  text-align: center;
+  padding: 4rem 2rem 3rem;
+  position: relative;
+}
+
+.footer-emoji { font-size: 2.5rem; margin-bottom: 1rem; }
+
+.footer h3 {
+  font-family: 'Dela Gothic One', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.footer-refs {
+  margin-top: 2rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.footer-refs a {
+  color: var(--lavender-deep);
+  text-decoration: none;
+}
+
+.footer-refs a:hover {
+  text-decoration: underline;
+}
+
+/* ============ UTILITIES ============ */
+.text-gradient {
+  background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.divider {
+  height: 3px;
+  background: linear-gradient(90deg, transparent, var(--pink), var(--mint), var(--lavender), transparent);
+  border-radius: 3px;
+  margin: 1rem 0;
+  opacity: 0.5;
+}
+
+.tag-inline {
+  display: inline-block;
+  font-size: 0.72rem;
+  padding: 0.15rem 0.6rem;
+  border-radius: 50px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, rgba(255,218,185,0.35), rgba(255,240,243,0.2));
+  border: 1.5px solid rgba(240,160,112,0.3);
+  border-radius: 16px;
+  padding: 1.2rem 1.5rem;
+  margin: 1.2rem 0;
+  font-size: 0.88rem;
+}
+
+/* ============ ANIMATIONS ============ */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in { animation: fadeIn 0.6s ease-out both; }
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 640px) {
+  .hero { padding: 3rem 1.5rem; }
+  .hero-stats { gap: 0.8rem; }
+  .stat-pill { min-width: 100px; padding: 0.8rem 1rem; }
+  .card { padding: 1.5rem; }
+  .sweet-card { flex-direction: column; align-items: center; text-align: center; }
+  .tl-item { margin-bottom: 1.5rem; }
+  .conc-card { flex-direction: column; align-items: center; text-align: center; }
+  .trend-grid { grid-template-columns: 1fr; }
+  .royce-modules { grid-template-columns: 1fr; }
+  .lounge-features { grid-template-columns: 1fr; }
+  section { padding: 3rem 0; }
+  .container { padding: 0 1rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== HERO ========== -->
+<div class="hero">
+  <div class="floating-elements">
+    <div class="float-item" style="left:8%;animation-duration:14s;animation-delay:0s;font-size:1.8rem">✈️</div>
+    <div class="float-item" style="left:22%;animation-duration:18s;animation-delay:2s;font-size:1.4rem">🍫</div>
+    <div class="float-item" style="left:40%;animation-duration:16s;animation-delay:4s;font-size:1.6rem">🧁</div>
+    <div class="float-item" style="left:60%;animation-duration:20s;animation-delay:1s;font-size:1.3rem">❄️</div>
+    <div class="float-item" style="left:75%;animation-duration:15s;animation-delay:3s;font-size:1.7rem">🎀</div>
+    <div class="float-item" style="left:90%;animation-duration:17s;animation-delay:5s;font-size:1.5rem">🛫</div>
+    <div class="float-item" style="left:50%;animation-duration:19s;animation-delay:6s;font-size:1.2rem">🍰</div>
+    <div class="float-item" style="left:15%;animation-duration:22s;animation-delay:7s;font-size:1.3rem">🎁</div>
+  </div>
+
+  <div class="hero-badge">🎀 New Chitose Airport: CTS</div>
+  <h1 class="hero-title">新千歳空港<br>完全攻略ガイド</h1>
+  <p class="hero-sub">160分間で食もエンタメもラウンジも ✨<br>SFC会員のための究極タイムマネジメント</p>
+
+  <div class="hero-stats">
+    <div class="stat-pill">
+      <div class="stat-num">160</div>
+      <div class="stat-label">分の滞在時間</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-num">15</div>
+      <div class="stat-label">厳選スイーツ</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-num">3</div>
+      <div class="stat-label">つの体験フェーズ</div>
+    </div>
+    <div class="stat-pill">
+      <div class="stat-num">45</div>
+      <div class="stat-label">分のラウンジ</div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">↓</div>
+</div>
+
+<!-- ========== NAV ========== -->
+<nav class="sticky-nav" id="nav">
+  <div class="nav-inner">
+    <a href="#intro" class="nav-link">🏠 はじめに</a>
+    <a href="#time" class="nav-link">⏱ 時間分析</a>
+    <a href="#sfc" class="nav-link">💎 SFC特権</a>
+    <a href="#trends" class="nav-link">🍰 トレンド</a>
+    <a href="#sweets" class="nav-link">🧁 厳選15品</a>
+    <a href="#route" class="nav-link">🗺 回遊ルート</a>
+    <a href="#smile" class="nav-link">😊 スマイル・ロード</a>
+    <a href="#royce" class="nav-link">🍫 ロイズ</a>
+    <a href="#lounge" class="nav-link">✨ ANAラウンジ</a>
+    <a href="#schedule" class="nav-link">📋 マスタースケジュール</a>
+    <a href="#conclusion" class="nav-link">🎯 結論</a>
+  </div>
+</nav>
+
+<!-- ========== INTRO ========== -->
+<section id="intro">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🌸</span>
+      <span class="section-label">Introduction</span>
+      <h2 class="section-title">空港は、目的地になる。</h2>
+      <p class="section-desc">新千歳空港は単なる通過点ではありません。<br>食・エンタメ・ホスピタリティが高度に融合した滞在型複合施設です。</p>
+    </div>
+
+    <div class="card card-accent">
+      <h3>🎯 本レポートの目的</h3>
+      <p>16:00過ぎに空港到着、18:40発のフライトに搭乗するという明確な時間的境界のもと、ANAスーパーフライヤーズゴールド（SFC）会員が、約30分間の土産購入・エンターテインメント施設訪問・ANAラウンジ滞在を最適に実行するための、究極の行動計画を導き出します。</p>
+    </div>
+
+    <div class="highlight-box">
+      💡 <strong>キーインサイト：</strong>限られた時間資源をいかに効率的に配分し、各施設の営業時間などの絶対的制約をクリアしながら、旅客の満足度を最大化するか — これが本ガイドの挑戦です。
+    </div>
+  </div>
+</section>
+
+<!-- ========== TIME ANALYSIS ========== -->
+<section id="time" style="background: linear-gradient(180deg, transparent, rgba(184,232,208,0.1), transparent);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">⏱</span>
+      <span class="section-label">Time Analysis</span>
+      <h2 class="section-title">時間資源の数理的分解</h2>
+      <p class="section-desc">使える時間を数字で把握して、最適配分しよう</p>
+    </div>
+
+    <div class="math-display">
+      総滞在時間 T<sub>total</sub> = 18:40 − 16:05
+      <span class="big">= 約 160 分</span>
+    </div>
+
+    <div class="card card-accent-mint">
+      <h3>🚪 搭乗ゲートのリミット</h3>
+      <p>国内線では出発の20〜25分前に搭乗改札が始まります。定時出発を確実にするため、ゲート到達のリミットは <strong>18:15</strong> に設定。これにより、自由に使える有効可処分時間は…</p>
+    </div>
+
+    <div class="math-display">
+      有効可処分時間 T<sub>effective</sub> = 18:15 − 16:05
+      <span class="big">= 130 分 🎉</span>
+    </div>
+
+    <div class="highlight-box mint">
+      🧩 この <strong>130分間</strong>を「購買（30分）」「エンタメ体験」「保安検査通過」「ラウンジ滞在」の4つに最適配分する — これがこのケースの核心です。
+    </div>
+  </div>
+</section>
+
+<!-- ========== SFC ========== -->
+<section id="sfc">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">💎</span>
+      <span class="section-label">SFC Privilege</span>
+      <h2 class="section-title">SFC会員の「最強カード」</h2>
+      <p class="section-desc">保安検査場のボトルネックを完全に無効化する</p>
+    </div>
+
+    <div class="card card-accent-lavender">
+      <h3>⚠️ 一般旅客の課題</h3>
+      <p>夕方の新千歳空港（16:00〜18:00）はトランジットピーク帯。一般の保安検査場では出発旅客の到着率がサービス率を上回り、通過に <strong>20〜30分以上</strong>かかることも。行動計画に多大なバッファ時間が必要になり、自由な時間が大幅に削られます。</p>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, rgba(224,212,245,0.2), rgba(255,240,243,0.15)); border: 2px solid rgba(196,170,239,0.3);">
+      <h3>✨ SFC会員の圧倒的優位性</h3>
+      <p>ANAスーパーフライヤーズゴールド会員は、<strong>「ANA PREMIUM CHECK-IN」</strong>と専用保安検査場を利用可能。これにより…</p>
+
+      <div class="math-display" style="margin-top: 1rem;">
+        保安検査所要時間 T<sub>sec</sub>
+        <span class="big">≈ 5 分（ほぼ確定値）</span>
+      </div>
+
+      <p style="margin-top: 0.8rem;">待ち行列の不確実性が排除されることで、出発直前まで一般エリアでの活動が可能に。不確実性へのバッファを削減し、そのリソースを直接的な体験価値へ振り向けられます。</p>
+    </div>
+
+    <div class="highlight-box lavender">
+      💡 <strong>ステータスの力 ＝ 時間の創出権。</strong>「ラウンジへのアクセス権」だけでなく、「自由な時間を生み出す権利」としてSFC資格が機能します。
+    </div>
+  </div>
+</section>
+
+<!-- ========== TRENDS ========== -->
+<section id="trends" style="background: linear-gradient(180deg, transparent, rgba(255,183,197,0.08), transparent);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🍰</span>
+      <span class="section-label">Trends 2024-2025</span>
+      <h2 class="section-title">北海道スイーツ3大トレンド</h2>
+      <p class="section-desc">30分で迷わないために、最新の潮流を押さえましょう</p>
+    </div>
+
+    <div class="trend-grid">
+      <div class="trend-card" style="border-top: 3px solid var(--pink);">
+        <span class="trend-icon">🔥</span>
+        <h4>焼きたて・生への回帰</h4>
+        <p>空港内の専用工房でその場で製造・販売。空港が「ライブコマース空間」に変貌。焼きたてミルククッキーや酪農チーズケーキが牽引。</p>
+      </div>
+      <div class="trend-card" style="border-top: 3px solid var(--mint-deep);">
+        <span class="trend-icon">✈️</span>
+        <h4>エアポートセレクション</h4>
+        <p>新千歳空港でしか買えない限定アソート。一回の購買で複数ブランドの代表作を網羅。時間制約のある旅客にぴったり。</p>
+      </div>
+      <div class="trend-card" style="border-top: 3px solid var(--lavender-deep);">
+        <span class="trend-icon">🔀</span>
+        <h4>ハイブリッド型菓子</h4>
+        <p>和菓子×洋菓子、メガブランド同士の融合。白いブラックサンダーどらやきなど、既存認知を活かしつつ新形態を提供。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SWEETS 15 ========== -->
+<section id="sweets">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🧁</span>
+      <span class="section-label">Best 15 Selection</span>
+      <h2 class="section-title">新千歳空港 厳選銘菓15選</h2>
+      <p class="section-desc">30分の購買で後悔しないための最強ポートフォリオ</p>
+    </div>
+
+    <div class="highlight-box" style="text-align: center; margin-bottom: 2rem;">
+      📊 <strong>きのとや（札幌農学校）</strong>が15品中6品を占め、圧倒的ドミナント・プレイヤーとして君臨！
+    </div>
+
+    <div class="sweets-grid">
+      <!-- 1 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">1</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">焼きたて北海道ミルククッキー</div>
+          <span class="sweet-tag tag-fresh">🔥 焼きたて</span>
+          <span class="sweet-tag tag-limited">実演販売</span>
+          <div class="sweet-desc">空港内工房での実演販売。視覚的・嗅覚的魅力を最大化した逸品。</div>
+        </div>
+      </div>
+      <!-- 2 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">2</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">焼きたて酪農チーズケーキ</div>
+          <span class="sweet-tag tag-fresh">🔥 焼きたて</span>
+          <span class="sweet-tag tag-premium">要冷蔵</span>
+          <div class="sweet-desc">究極の鮮度と芳醇なチーズの香り。早めの消費が推奨されます。</div>
+        </div>
+      </div>
+      <!-- 3 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">3</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">焼きたて北海道アップルパイ</div>
+          <span class="sweet-tag tag-fresh">🔥 焼きたて</span>
+          <span class="sweet-tag tag-premium">行列必至</span>
+          <div class="sweet-desc">サクサクのパイ生地と北海道産リンゴ。行列必至の超人気商品！</div>
+        </div>
+      </div>
+      <!-- 4 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">4</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">酪農焼きチーズクッキー</div>
+          <span class="sweet-tag tag-classic">定番</span>
+          <div class="sweet-desc">ミルククッキーのチーズ派生。日持ちが良く、ばらまき配布用にぴったり。</div>
+        </div>
+      </div>
+      <!-- 5 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">5</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">開拓の詩</div>
+          <span class="sweet-tag tag-premium">プレミアム</span>
+          <div class="sweet-desc">重厚感のあるパッケージと歴史的ストーリー性を備えた特別な一品。</div>
+        </div>
+      </div>
+      <!-- 6 -->
+      <div class="sweet-card">
+        <div class="sweet-num pink-bg">6</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌農学校（きのとや）</div>
+          <div class="sweet-name">北海道チーズタルト（3個入 ¥810）</div>
+          <span class="sweet-tag tag-fresh">冷凍技術</span>
+          <span class="sweet-tag tag-limited">自宅リベイクOK</span>
+          <div class="sweet-desc">急速冷凍技術で焼きたての美味しさを封印。自宅オーブンで再現可能な「消費体験の時空間的拡張」。</div>
+        </div>
+      </div>
+      <!-- 7 -->
+      <div class="sweet-card">
+        <div class="sweet-num mint-bg">7</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌千秋庵</div>
+          <div class="sweet-name">生ノースマン</div>
+          <span class="sweet-tag tag-hybrid">和洋折衷</span>
+          <span class="sweet-tag tag-fresh">生菓子</span>
+          <div class="sweet-desc">伝統の「ノースマン」にたっぷりの生クリームを注入。和洋折衷の極致。</div>
+        </div>
+      </div>
+      <!-- 8 -->
+      <div class="sweet-card">
+        <div class="sweet-num mint-bg">8</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">札幌千秋庵</div>
+          <div class="sweet-name">ノースマン</div>
+          <span class="sweet-tag tag-classic">伝統の定番</span>
+          <div class="sweet-desc">北海道土産の揺るぎない定番。長期保存が可能で安心。</div>
+        </div>
+      </div>
+      <!-- 9 -->
+      <div class="sweet-card">
+        <div class="sweet-num lavender-bg">9</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">石屋製菓（ISHIYA）</div>
+          <div class="sweet-name">ISHIYA 北海道エアポートセレクション</div>
+          <span class="sweet-tag tag-limited">空港限定</span>
+          <div class="sweet-desc">白い恋人をはじめとする人気商品の限定詰め合わせ。高いブランド認知。</div>
+        </div>
+      </div>
+      <!-- 10 -->
+      <div class="sweet-card">
+        <div class="sweet-num lavender-bg">10</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">フェルム ラ・テール美瑛</div>
+          <div class="sweet-name">北海道エアポートセレクション</div>
+          <span class="sweet-tag tag-limited">空港限定</span>
+          <span class="sweet-tag tag-premium">自然派</span>
+          <div class="sweet-desc">美瑛産小麦やバターを使用した自然派スイーツの限定パッケージ。</div>
+        </div>
+      </div>
+      <!-- 11 -->
+      <div class="sweet-card">
+        <div class="sweet-num sky-bg">11</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">有楽製菓</div>
+          <div class="sweet-name">白いブラックサンダーどらやき</div>
+          <span class="sweet-tag tag-hybrid">和洋折衷</span>
+          <div class="sweet-desc">ブラックサンダーのザクザク感＋ふんわりどら焼き生地。イノベーションの典型例。</div>
+        </div>
+      </div>
+      <!-- 12 -->
+      <div class="sweet-card">
+        <div class="sweet-num peach-bg">12</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">北海道牛乳カステラ</div>
+          <div class="sweet-name">北海道牛乳カステラ</div>
+          <span class="sweet-tag tag-premium">パティシエ監修</span>
+          <div class="sweet-desc">辻口博啓シェフ監修。窯出しのフレッシュな味わいが楽しめる。</div>
+        </div>
+      </div>
+      <!-- 13 -->
+      <div class="sweet-card">
+        <div class="sweet-num peach-bg">13</div>
+        <div class="sweet-info">
+          <div class="sweet-brand">北海道牛乳カステラ</div>
+          <div class="sweet-name">濃厚チーズケーキ</div>
+          <span class="sweet-tag tag-classic">洋菓子</span>
+          <div class="sweet-desc">カステラブランドが手掛ける、濃厚なチーズの深い味わい。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="warning-box" style="margin-top: 1.5rem;">
+      ⚡ <strong>注目ポイント：</strong>「北海道チーズタルト」は、急速冷凍技術で「消費体験の時空間を拡張」する画期的な製品設計。物理的な製品の販売を超えた、体験の提供です。
+    </div>
+  </div>
+</section>
+
+<!-- ========== ROUTE ========== -->
+<section id="route" style="background: linear-gradient(180deg, transparent, rgba(197,228,247,0.1), transparent);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🗺</span>
+      <span class="section-label">Shopping Route</span>
+      <h2 class="section-title">30分間の最適回遊ルート</h2>
+      <p class="section-desc">16:05〜16:35 — センタープラザを軸に放射状に攻略</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background: linear-gradient(135deg, var(--pink-deep), var(--pink));">🥇</div>
+        <div class="tl-time">Phase 1 — 16:05〜16:15</div>
+        <div class="tl-card">
+          <div class="tl-location">希少性と鮮度の確保</div>
+          <h4>「札幌農学校（きのとや）」へ直行！</h4>
+          <p>焼きたて北海道アップルパイ・酪農チーズケーキなどの生菓子系は、夕方には行列 or 完売リスクあり。最優先で確保すべし。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: linear-gradient(135deg, var(--mint-deep), var(--mint));">🥈</div>
+        <div class="tl-time">Phase 2 — 16:15〜16:25</div>
+        <div class="tl-card">
+          <div class="tl-location">ハイブリッド商品の捕捉</div>
+          <h4>「札幌千秋庵」で生ノースマンを確保</h4>
+          <p>伝統×革新のハイブリッドスイーツ。生菓子なので早期アプローチが必須。在庫を確認しながら確保。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: linear-gradient(135deg, var(--lavender-deep), var(--lavender));">🥉</div>
+        <div class="tl-time">Phase 3 — 16:25〜16:35</div>
+        <div class="tl-card">
+          <div class="tl-location">配布用パッケージの調達</div>
+          <h4>ISHIYA・有楽製菓でパッケージ商品を購入</h4>
+          <p>エアポートセレクションや白いブラックサンダーどらやきは在庫が潤沢で決済も早い。時間プレッシャーが高まる後半に配置するのが合理的。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== SMILE ROAD ========== -->
+<section id="smile">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">😊</span>
+      <span class="section-label">Entertainment Zone</span>
+      <h2 class="section-title">第3層「スマイル・ロード」</h2>
+      <p class="section-desc">16:35〜17:25 — 空港が誇るテーマパーク的空間を満喫</p>
+    </div>
+
+    <div class="card card-accent-sky">
+      <h3>🌈 スマイル・ロードとは？</h3>
+      <p>ターミナル3階、国内線と国際線をつなぐ連絡施設。単なる通路ではなく、ドラえもんわくわくスカイパーク（〜19:00）やハローキティハッピーフライトなど、日本を代表するキャラクター体験施設が集積した、高度に設計されたテーマパーク空間です。</p>
+    </div>
+
+    <div class="highlight-box mint">
+      🚶 50分の限られた時間枠では有料ゾーンの本格体験は難しいですが、導線を歩くプロセス自体がアトラクション体験として設計されています。ファサードや無料展示エリアのアンビエンスを楽しみましょう。
+    </div>
+  </div>
+</section>
+
+<!-- ========== ROYCE ========== -->
+<section id="royce" style="background: linear-gradient(180deg, transparent, rgba(224,212,245,0.1), transparent);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🍫</span>
+      <span class="section-label">Royce' Chocolate World</span>
+      <h2 class="section-title">ロイズ チョコレートワールド</h2>
+      <p class="section-desc">大人も子供も楽しめる、産業観光型ファシリティ</p>
+    </div>
+
+    <div class="royce-modules">
+      <div class="royce-mod">
+        <div class="royce-mod-icon" style="background: linear-gradient(135deg, rgba(224,212,245,0.4), rgba(255,240,243,0.3));">🏛</div>
+        <h4>ミュージアム</h4>
+        <p>チョコレートの歴史、カカオの製品化プロセス、アンティークコレクションの展示</p>
+        <span class="time-tag" style="background: rgba(184,232,208,0.25); color: var(--mint-deep);">8:00 - 19:00</span>
+      </div>
+      <div class="royce-mod">
+        <div class="royce-mod-icon" style="background: linear-gradient(135deg, rgba(255,183,197,0.3), rgba(255,218,185,0.3));">🏭</div>
+        <h4>ファクトリー</h4>
+        <p>ガラス越しに製造工程を見学。機械と職人の手作業が交差するライブ空間</p>
+        <span class="time-tag" style="background: rgba(255,183,197,0.25); color: var(--pink-deep);">8:30 - 17:30 ⚠️</span>
+      </div>
+      <div class="royce-mod">
+        <div class="royce-mod-icon" style="background: linear-gradient(135deg, rgba(197,228,247,0.4), rgba(184,232,208,0.3));">🛍</div>
+        <h4>ショップ</h4>
+        <p>空港限定オリジナル商品、ロイズのチョコを練り込んだ焼きたてパン</p>
+        <span class="time-tag" style="background: rgba(197,228,247,0.3); color: var(--sky-deep);">8:00 - 19:00</span>
+      </div>
+    </div>
+
+    <div class="warning-box" style="margin-top: 1.5rem;">
+      🚨 <strong>超重要！</strong>ファクトリーは <strong>17:30</strong> に閉まります。もし「先にラウンジで休んでから…」と考えると、中核的な魅力が失われる致命的な機会損失に。<strong>購買活動の直後（16:40頃）</strong>にアクセスするのが鍵！
+    </div>
+
+    <div class="card" style="margin-top: 1.5rem;">
+      <h3>⏰ 時間的適合性のミラクル</h3>
+      <p>16:35に購買を終え、16:40にアクセスすれば、ファクトリー稼働の最終約50分間（16:40〜17:30）のウィンドウに完璧にフィット。推奨滞在時間は0〜60分とされており、40〜50分の持ち時間はミュージアム・ファクトリー・ショップすべてを楽しむのに理想的です。</p>
+    </div>
+
+    <div class="highlight-box lavender" style="margin-top: 1rem;">
+      📵 Wi-Fi・電源の提供はなし。これはデジタルを離れ、目の前のチョコレートの世界に没頭するための環境設計と捉えましょう。スマホは最小限に ✨
+    </div>
+  </div>
+</section>
+
+<!-- ========== ANA LOUNGE ========== -->
+<section id="lounge">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">✨</span>
+      <span class="section-label">ANA Premium Lounge</span>
+      <h2 class="section-title">ANAラウンジで心身リカバリー</h2>
+      <p class="section-desc">17:30〜18:15 — 45分間のプレミアムな静寂</p>
+    </div>
+
+    <div class="card" style="background: linear-gradient(135deg, rgba(224,212,245,0.15), rgba(197,228,247,0.1)); border: 2px solid rgba(196,170,239,0.2);">
+      <h3>🚀 制限エリアへのシームレスな移行</h3>
+      <p>混雑する一般保安検査場を横目に、<strong>「ANA PREMIUM CHECK-IN」</strong>の専用エントランスへ直行。喧騒から静寂へ — この空間は心理的トランジション（移行）を促す建築的装置です。保安検査（約5分）を通過すると、動線は途切れることなくANAラウンジのレセプションへ接続されます。</p>
+    </div>
+
+    <div class="lounge-features" style="margin-top: 1.5rem;">
+      <div class="lounge-feat">
+        <div class="lounge-feat-icon">🛋</div>
+        <h4>身体的休息</h4>
+        <p>人間工学に基づいたソファ席やパーテーション付き個別ブースで、歩き疲れた体を回復</p>
+      </div>
+      <div class="lounge-feat">
+        <div class="lounge-feat-icon">🔌</div>
+        <h4>デジタル充電</h4>
+        <p>高速Wi-Fi・AC電源・USBポート完備。約1.5時間オフラインだったデバイスを一気に復活</p>
+      </div>
+      <div class="lounge-feat">
+        <div class="lounge-feat-icon">🍺</div>
+        <h4>飲料&水分補給</h4>
+        <p>ビール（サッポロクラシック等）、エスプレッソ、ソフトドリンクが無料。機内の乾燥に備えて</p>
+      </div>
+      <div class="lounge-feat">
+        <div class="lounge-feat-icon">🌲</div>
+        <h4>環境デザイン</h4>
+        <p>ウォールナット木目調の内装、滑走路を見渡す自然採光。北海道の自然を感じる空間設計</p>
+      </div>
+    </div>
+
+    <div class="highlight-box" style="margin-top: 1.5rem;">
+      ℹ️ お土産として購入したチーズタルトなどの持ち込み飲食はエチケット的にNG。提供される飲料で水分補給とリフレッシュに集中しましょう。18:15にゲートへ移動開始（ラウンジからゲートまで約3〜5分）。
+    </div>
+  </div>
+</section>
+
+<!-- ========== MASTER SCHEDULE ========== -->
+<section id="schedule" style="background: linear-gradient(180deg, transparent, rgba(255,183,197,0.08), transparent);">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">📋</span>
+      <span class="section-label">Master Schedule</span>
+      <h2 class="section-title">統合マスター・スケジュール</h2>
+      <p class="section-desc">一切の無駄を排除した、体験価値最大化のタイムライン</p>
+    </div>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--pink-deep); font-size: 0.7rem;">🛬</div>
+        <div class="tl-time">16:05</div>
+        <div class="tl-card" style="border-left: 3px solid var(--pink);">
+          <div class="tl-location">第2層 出発ロビー</div>
+          <h4>空港到着・スタート</h4>
+          <p>手荷物カートを確保し、ショッピング・ワールドへ直行。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--pink-deep); font-size: 0.7rem;">🛍</div>
+        <div class="tl-time">16:05 – 16:35（30分間）</div>
+        <div class="tl-card" style="border-left: 3px solid var(--pink);">
+          <div class="tl-location">第2層 ショッピング・ワールド</div>
+          <h4>土産厳選＆集中投資フェーズ</h4>
+          <p>① 札幌農学校で焼きたてアップルパイ・チーズタルト等の生菓子系を優先確保 → ② 札幌千秋庵で生ノースマン確保 → ③ ISHIYAでエアポートセレクション＆有楽製菓で白いブラックサンダーどらやき購入。ミッション完了！</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--mint-deep); font-size: 0.7rem;">⬆️</div>
+        <div class="tl-time">16:35 – 16:40</div>
+        <div class="tl-card" style="border-left: 3px solid var(--mint);">
+          <div class="tl-location">ターミナル内</div>
+          <h4>垂直移動</h4>
+          <p>エスカレーター/エレベーターで第3層「スマイル・ロード」へ。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--mint-deep); font-size: 0.7rem;">🍫</div>
+        <div class="tl-time">16:40 – 17:20（40分間）</div>
+        <div class="tl-card" style="border-left: 3px solid var(--mint);">
+          <div class="tl-location">第3層 スマイル・ロード</div>
+          <h4>ロイズチョコレートワールド滞在</h4>
+          <p>17:30終了のファクトリー見学を最優先で実施。ミュージアム鑑賞→ショップでの限定品探索。移動中にドラえもんスカイパーク等のアンビエンスも楽しむ。Wi-Fi・電源なしの環境で体験に専念。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--lavender-deep); font-size: 0.7rem;">⬇️</div>
+        <div class="tl-time">17:20 – 17:25</div>
+        <div class="tl-card" style="border-left: 3px solid var(--lavender);">
+          <div class="tl-location">ターミナル内</div>
+          <h4>降下・移動</h4>
+          <p>第2層へ戻り、混雑する一般検査場を迂回してANA PREMIUM CHECK-INへ。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--lavender-deep); font-size: 0.7rem;">💎</div>
+        <div class="tl-time">17:25 – 17:30（5分間）</div>
+        <div class="tl-card" style="border-left: 3px solid var(--lavender);">
+          <div class="tl-location">プレミアムチェックイン</div>
+          <h4>SFC特権で保安検査を瞬時通過</h4>
+          <p>専用レーンにより時間的不確実性と心理的ストレスを完全排除。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--sky-deep); font-size: 0.7rem;">✨</div>
+        <div class="tl-time">17:30 – 18:15（45分間）</div>
+        <div class="tl-card" style="border-left: 3px solid var(--sky);">
+          <div class="tl-location">制限エリア ANAラウンジ</div>
+          <h4>ラウンジ滞在で心身を再構築</h4>
+          <p>エルゴノミックなソファ席で休息、デバイス充電、無料ドリンク（ビール・コーヒー等）で水分補給。搭乗前の静寂な時間を堪能。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: var(--sky-deep); font-size: 0.7rem;">🚶</div>
+        <div class="tl-time">18:15 – 18:20</div>
+        <div class="tl-card" style="border-left: 3px solid var(--sky);">
+          <div class="tl-location">制限エリア コンコース</div>
+          <h4>搭乗ゲートへ移動</h4>
+          <p>ラウンジがエアサイド内にあるため移動はわずか3〜5分。焦燥感ゼロ。</p>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot" style="background: linear-gradient(135deg, var(--pink-deep), var(--lavender-deep)); font-size: 0.7rem;">✈️</div>
+        <div class="tl-time">18:20 – 18:40</div>
+        <div class="tl-card" style="border-left: 3px solid var(--pink-deep);">
+          <div class="tl-location">搭乗ゲート → 機内</div>
+          <h4>出発！</h4>
+          <p>改札通過、着席。18:40定刻プッシュバックに向けた最終準備完了。いってらっしゃい！ ✈️</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CONCLUSION ========== -->
+<section id="conclusion">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-emoji">🎯</span>
+      <span class="section-label">Conclusion</span>
+      <h2 class="section-title">3つの結論</h2>
+      <p class="section-desc">160分間で空港のポテンシャルを極限まで引き出す鍵</p>
+    </div>
+
+    <div class="conclusion-points">
+      <div class="conc-card">
+        <div class="conc-num" style="background: linear-gradient(135deg, var(--pink-deep), var(--pink));">1</div>
+        <div>
+          <h4>🍰 トレンドに焦点を当てた購買戦略</h4>
+          <p>闇雲な探索を避け、「焼きたて・生」や「空港限定セレクション」に明確に焦点を当てる。わずか30分でも、希少性と鮮度を兼ね備えた最高品質のお土産調達が可能に。札幌農学校ブランドの多角的展開（クッキーから冷凍チーズタルトまで）を最優先で捕捉することが成功の鍵。</p>
+        </div>
+      </div>
+
+      <div class="conc-card">
+        <div class="conc-num" style="background: linear-gradient(135deg, var(--mint-deep), var(--mint));">2</div>
+        <div>
+          <h4>⏰ 営業時間からの逆算設計</h4>
+          <p>各施設の「営業時間」というハードコンストレイントを深く理解し、動線を設計。17:30終了のロイズファクトリーに対し、購買直後の16:40にアクセスする動線計画が、エンターテインメント価値を最大化する決定的要因。</p>
+        </div>
+      </div>
+
+      <div class="conc-card">
+        <div class="conc-num" style="background: linear-gradient(135deg, var(--lavender-deep), var(--lavender));">3</div>
+        <div>
+          <h4>💎 SFC = 時間を自在に操る権利</h4>
+          <p>航空会社上級会員資格は、ラウンジという物理空間の提供だけでなく「空港での時間を自在にコントロールする権利」そのもの。専用保安検査場による時間確定が、出発1時間前まで一般エリアでの高度な活動を可能にし、全スケジュールの成立を支えている。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<div class="footer">
+  <div class="footer-emoji">✈️ 🌸</div>
+  <h3>新千歳空港は、旅の最終章を飾る最高の目的地。</h3>
+  <p>適切な戦略と権利を行使すれば、160分間で「食の魅力」「エンターテインメントの興奮」「プレミアムなホスピタリティ」のすべてを、一切の焦燥感なく享受できます。</p>
+
+  <div class="footer-refs">
+    <div class="divider" style="margin: 1.5rem auto; max-width: 200px;"></div>
+    <strong>引用文献</strong><br>
+    <a href="https://www.lemon8-app.com/@nao_toukai/7567325878050210360?region=us" target="_blank">[1] ロイズチョコレートワールド完全ガイド - Lemon8</a><br>
+    <a href="https://travel.yahoo.co.jp/kanko/spot-00014081/" target="_blank">[2] Royce' Chocolate World - Yahoo!トラベル</a><br>
+    <a href="https://nonno.hpplus.jp/lifestyle/travel/317698/" target="_blank">[3] 新千歳空港おみやげ15選 - non-no</a>
+  </div>
+</div>
+
+<script>
+// Sticky nav scroll effect
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 100);
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('.nav-link').forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      const navHeight = nav.offsetHeight;
+      const y = target.getBoundingClientRect().top + window.scrollY - navHeight - 16;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  });
+});
+
+// Active nav highlight
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      navLinks.forEach(link => {
+        link.classList.toggle('active', link.getAttribute('href') === `#${entry.target.id}`);
+      });
+    }
+  });
+}, { rootMargin: '-30% 0px -60% 0px' });
+sections.forEach(sec => observer.observe(sec));
+
+// Fade-in animation on scroll
+const fadeObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.card, .sweet-card, .trend-card, .tl-item, .conc-card, .royce-mod, .lounge-feat').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(20px)';
+  el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+  fadeObserver.observe(el);
+});
+</script>
+</body>
+</html>
